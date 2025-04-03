@@ -74,18 +74,51 @@
 // admin.manageUsers();       
 // console.log(admin1.greet()); 
 // Closures
-function createCounter() {
-    var count = 0;
-    return {
-        increment: function () { return count++; },
-        decrement: function () { return count--; },
-        getvalue: function () { return count; }
+// function createCounter (){
+//     let count = 0;
+//     return{
+//         increment: () => count++,
+//         decrement: () => count--,
+//         getvalue: () => count
+//     }
+// }
+// const counter1 = createCounter();
+// const counter2 = createCounter();
+// counter2.increment();
+// counter2.increment();
+// counter1.increment();
+// console.log(counter1.getvalue());
+// console.log(counter2.getvalue());
+// //encapuslation is achieved by using private and public keywords closure
+// Class Modifiers
+var UserClass = /** @class */ (function () {
+    // Constructor parameter properties (shorter and cleaner)
+    function UserClass(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    // Getter Methods
+    UserClass.prototype.getName = function () {
+        return this.name;
     };
-}
-var counter1 = createCounter();
-var counter2 = createCounter();
-counter2.increment();
-counter2.increment();
-counter1.increment();
-console.log(counter1.getvalue());
-console.log(counter2.getvalue());
+    UserClass.prototype.getAge = function () {
+        return this.age;
+    };
+    // Setter Methods
+    UserClass.prototype.setName = function (name) {
+        this.name = name;
+    };
+    UserClass.prototype.setAge = function (age) {
+        this.age = age;
+    };
+    return UserClass;
+}());
+// Create a user instance
+var user = new UserClass('John', 30);
+console.log(user.getName()); // Output: John
+console.log(user.getAge()); // Output: 30
+// Instead of reassigning, update properties using setter methods
+user.setName('Jane');
+user.setAge(28);
+console.log(user.getName()); // Output: Jane
+console.log(user.getAge()); // Output: 28

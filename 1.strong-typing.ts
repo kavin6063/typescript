@@ -106,20 +106,62 @@
 
 // Closures
 
-function createCounter (){
-    let count = 0;
-    return{
-        increment: () => count++,
-        decrement: () => count--,
-        getvalue: () => count
-    }
-}
+// function createCounter (){
+//     let count = 0;
+//     return{
+//         increment: () => count++,
+//         decrement: () => count--,
+//         getvalue: () => count
+//     }
+// }
 
-const counter1 = createCounter();
-const counter2 = createCounter();
-counter2.increment();
-counter2.increment();
-counter1.increment();
-console.log(counter1.getvalue());
+// const counter1 = createCounter();
+// const counter2 = createCounter();
+// counter2.increment();
+// counter2.increment();
+// counter1.increment();
+// console.log(counter1.getvalue());
 
-console.log(counter2.getvalue());
+// console.log(counter2.getvalue());
+
+// //encapuslation is achieved by using private and public keywords closure
+
+
+// Class Modifiers
+// class UserClass {
+//     // Constructor parameter properties (shorter and cleaner)
+//     constructor(private name: string, private age: number) {}
+
+//     // Getter Methods
+//     public getName(): string {
+//         return this.name;
+//     }
+
+//     public getAge(): number {   
+//         return this.age;
+//     }
+
+//     // Setter Methods
+//     public setName(name: string): void {
+//         this.name = name;
+//     }
+
+//     public setAge(age: number): void {
+//         if (age > 0) {
+//         this.age = age;
+//         }
+//     }
+// }
+
+// // Create a user instance
+// let newUser = new UserClass('John', 30);
+
+// console.log(newUser.getName()); // Output: John
+// console.log(newUser.getAge());  // Output: 30
+
+// // Instead of reassigning, update properties using setter methods
+// newUser.setName('Jane');
+// newUser.setAge(28);
+
+// console.log(newUser.getName()); // Output: Jane
+// console.log(newUser.getAge());  // Output: 28
