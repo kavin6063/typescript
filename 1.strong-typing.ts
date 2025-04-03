@@ -217,16 +217,16 @@
 
 // 
 
-class UserClass {
-    name: string
-    statictotalUsers : number = 0
+// class UserClass {
+//     name: string
+//     statictotalUsers : number = 0
     
-    constructor(name: string) {
-        this.name = name;
-        UserClass.totalUsers++;
-    }
+//     constructor(name: string) {
+//         this.name = name;
+//         UserClass.totalUsers++;
+//     }
     
-    getName() {
-        return this.name;
-    }
-}
+//     getName() {
+//         return this.name;
+//     }
+// }
