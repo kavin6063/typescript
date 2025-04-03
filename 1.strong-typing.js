@@ -1,21 +1,6 @@
 // // arrays
 // var arr: number[] = [1, 2, 3];
 // arr = [1, 2 , ];
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 // //Enums
 // enum Color {
 //     Red ,
@@ -47,41 +32,60 @@ var __extends = (this && this.__extends) || (function () {
 // greet({firstName: 'John', lastName: 'Doe'});
 // // inheritance
 // Inheritance
-var Person = /** @class */ (function () {
-    function Person(firstName, lastName, age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
-    Person.prototype.greet = function () {
-        return "Hello ".concat(this.firstName, " ").concat(this.lastName, ", you are ").concat(this.age, " years old.");
+// class PersonClass {
+//     firstName: string;
+//     lastName: string;
+//     age: number;
+//     constructor(firstName: string, lastName: string, age: number) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.age = age;
+//     }
+//     greet() {
+//         return `Hello ${this.firstName} ${this.lastName}, you are ${this.age} years old.`;
+//     }
+//     getAge() {
+//         return this.age;
+//     }
+// }
+// // Admin extends Person
+// class AdminClass extends Person {
+//     role: string;
+//     constructor(firstName: string, lastName: string, age: number, role: string) {
+//         super(firstName, lastName, age); // Call the parent constructor
+//         this.role = role;
+//     }
+//     greet() {
+//         return `Hello ${this.firstName} ${this.lastName}, you are ${this.age} years old and your role is ${this.role}.`;
+//     }
+//     manageUsers() {
+//         console.log(`Managing users as ${this.role}`);
+//     }
+//     getAge() {
+//         return this.age;
+//     }
+// }
+// // Instances
+// let user = new PersonClass('John', 'Doe', 30);
+// let admin = new AdminClass('Alex', 'Mia', 30, 'Admin');
+// console.log(user.greet());  
+// console.log(user.getAge()); 
+// console.log(admin.getAge()); 
+// admin.manageUsers();       
+// console.log(admin1.greet()); 
+// Closures
+function createCounter() {
+    var count = 0;
+    return {
+        increment: function () { return count++; },
+        decrement: function () { return count--; },
+        getvalue: function () { return count; }
     };
-    Person.prototype.getAge = function () {
-        return this.age;
-    };
-    return Person;
-}());
-// Admin extends Person
-var Admin = /** @class */ (function (_super) {
-    __extends(Admin, _super);
-    function Admin(firstName, lastName, age, role) {
-        var _this = _super.call(this, firstName, lastName, age) || this; // Call the parent constructor
-        _this.role = role;
-        return _this;
-    }
-    Admin.prototype.greet = function () {
-        return "Hello ".concat(this.firstName, " ").concat(this.lastName, ", you are ").concat(this.age, " years old and your role is ").concat(this.role, ".");
-    };
-    Admin.prototype.manageUsers = function () {
-        console.log("Managing users as ".concat(this.role));
-    };
-    return Admin;
-}(Person));
-// Instances
-var user1 = new Person('John', 'Doe', 30);
-var admin1 = new Admin('Alex', 'Mia', 30, 'Admin');
-console.log(user1.greet()); // Works fine
-console.log(user1.getAge()); // Works fine
-console.log(admin1.getAge()); // Works fine
-admin1.manageUsers(); // Logs message without undefined issue
-console.log(admin1.greet()); // Works fine
+}
+var counter1 = createCounter();
+var counter2 = createCounter();
+counter2.increment();
+counter2.increment();
+counter1.increment();
+console.log(counter1.getvalue());
+console.log(counter2.getvalue());

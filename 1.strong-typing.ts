@@ -50,56 +50,76 @@
 
 // Inheritance
 
-class PersonClass {
-    firstName: string;
-    lastName: string;
-    age: number;
+// class PersonClass {
+//     firstName: string;
+//     lastName: string;
+//     age: number;
     
-    constructor(firstName: string, lastName: string, age: number) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-    }
+//     constructor(firstName: string, lastName: string, age: number) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//         this.age = age;
+//     }
 
-    greet() {
-        return `Hello ${this.firstName} ${this.lastName}, you are ${this.age} years old.`;
-    }
+//     greet() {
+//         return `Hello ${this.firstName} ${this.lastName}, you are ${this.age} years old.`;
+//     }
 
-    getAge() {
-        return this.age;
+//     getAge() {
+//         return this.age;
+//     }
+// }
+
+// // Admin extends Person
+// class AdminClass extends Person {
+//     role: string;
+
+//     constructor(firstName: string, lastName: string, age: number, role: string) {
+//         super(firstName, lastName, age); // Call the parent constructor
+//         this.role = role;
+//     }
+
+//     greet() {
+//         return `Hello ${this.firstName} ${this.lastName}, you are ${this.age} years old and your role is ${this.role}.`;
+//     }
+
+//     manageUsers() {
+//         console.log(`Managing users as ${this.role}`);
+//     }
+
+//     getAge() {
+//         return this.age;
+//     }
+// }
+
+// // Instances
+// let user = new PersonClass('John', 'Doe', 30);
+// let admin = new AdminClass('Alex', 'Mia', 30, 'Admin');
+
+// console.log(user.greet());  
+// console.log(user.getAge()); 
+
+// console.log(admin.getAge()); 
+// admin.manageUsers();       
+
+// console.log(admin1.greet()); 
+
+// Closures
+
+function createCounter (){
+    let count = 0;
+    return{
+        increment: () => count++,
+        decrement: () => count--,
+        getvalue: () => count
     }
 }
 
-// Admin extends Person
-class AdminClass extends Person {
-    role: string;
+const counter1 = createCounter();
+const counter2 = createCounter();
+counter2.increment();
+counter2.increment();
+counter1.increment();
+console.log(counter1.getvalue());
 
-    constructor(firstName: string, lastName: string, age: number, role: string) {
-        super(firstName, lastName, age); // Call the parent constructor
-        this.role = role;
-    }
-
-    greet() {
-        return `Hello ${this.firstName} ${this.lastName}, you are ${this.age} years old and your role is ${this.role}.`;
-    }
-
-    manageUsers() {
-        console.log(`Managing users as ${this.role}`);
-    }
-
-    getAge() {
-        return this.age;
-    }
-}
-
-// Instances
-let user = new PersonClass('John', 'Doe', 30);
-let admin = new AdminClass('Alex', 'Mia', 30, 'Admin');
-
-console.log(user.greet());  
-console.log(user.getAge()); 
-
-console.log(admin.getAge()); 
-admin.manageUsers();       
-
-console.log(admin1.greet()); 
+console.log(counter2.getvalue());
