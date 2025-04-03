@@ -50,7 +50,7 @@
 
 // Inheritance
 
-class Person {
+class PersonClass {
     firstName: string;
     lastName: string;
     age: number;
@@ -71,7 +71,7 @@ class Person {
 }
 
 // Admin extends Person
-class Admin extends Person {
+class AdminClass extends Person {
     role: string;
 
     constructor(firstName: string, lastName: string, age: number, role: string) {
@@ -86,16 +86,20 @@ class Admin extends Person {
     manageUsers() {
         console.log(`Managing users as ${this.role}`);
     }
+
+    getAge() {
+        return this.age;
+    }
 }
 
 // Instances
-let user1 = new Person('John', 'Doe', 30);
-let admin1 = new Admin('Alex', 'Mia', 30, 'Admin');
+let user = new PersonClass('John', 'Doe', 30);
+let admin = new AdminClass('Alex', 'Mia', 30, 'Admin');
 
-console.log(user1.greet());  // Works fine
-console.log(user1.getAge()); // Works fine
+console.log(user.greet());  
+console.log(user.getAge()); 
 
-console.log(admin1.getAge()); // Works fine
-admin1.manageUsers();        // Logs message without undefined issue
+console.log(admin.getAge()); 
+admin.manageUsers();       
 
-console.log(admin1.greet());  // Works fine
+console.log(admin1.greet()); 
