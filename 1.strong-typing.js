@@ -91,34 +91,67 @@
 // console.log(counter2.getvalue());
 // //encapuslation is achieved by using private and public keywords closure
 // Class Modifiers
+// class UserClass {
+//     // Constructor parameter properties (shorter and cleaner)
+//     constructor(private name: string, private age: number) {}
+//     // Getter Methods
+//     public getName(): string {
+//         return this.name;
+//     }
+//     public getAge(): number {   
+//         return this.age;
+//     }
+//     // Setter Methods
+//     public setName(name: string): void {
+//         this.name = name;
+//     }
+//     public setAge(age: number): void {
+//         if (age > 0) {
+//         this.age = age;
+//         }
+//     }
+// }
+// // Create a user instance
+// let newUser = new UserClass('John', 30);
+// console.log(newUser.getName()); // Output: John
+// console.log(newUser.getAge());  // Output: 30
+// // Instead of reassigning, update properties using setter methods
+// newUser.setName('Jane');
+// newUser.setAge(28);
+// console.log(newUser.getName()); // Output: Jane
+// console.log(newUser.getAge());  // Output: 28
+// static functions
+// class UserClass {
+//     name: string;
+//     age: number;
+//     constructor(name: string, age: number) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//    static isAdult(age: number) {
+//         return age >= 18;
+//     }
+// }
+// // const user = new UserClass('John', 30);
+// // console.log(user.isAdult());
+// console.log(UserClass.isAdult(20));
+// Static - properties
 var UserClass = /** @class */ (function () {
-    // Constructor parameter properties (shorter and cleaner)
-    function UserClass(name, age) {
+    function UserClass(name) {
         this.name = name;
-        this.age = age;
     }
-    // Getter Methods
     UserClass.prototype.getName = function () {
         return this.name;
     };
-    UserClass.prototype.getAge = function () {
-        return this.age;
-    };
-    // Setter Methods
-    UserClass.prototype.setName = function (name) {
-        this.name = name;
-    };
-    UserClass.prototype.setAge = function (age) {
-        this.age = age;
-    };
     return UserClass;
 }());
-// Create a user instance
-var user = new UserClass('John', 30);
-console.log(user.getName()); // Output: John
-console.log(user.getAge()); // Output: 30
-// Instead of reassigning, update properties using setter methods
-user.setName('Jane');
-user.setAge(28);
-console.log(user.getName()); // Output: Jane
-console.log(user.getAge()); // Output: 28
+var totalUsers = 0;
+function createUser(name) {
+    totalUsers++;
+    return new UserClass(name);
+}
+var user1 = createUser('John');
+var user2 = createUser('Jane');
+console.log(user1.getName());
+console.log(user2.getName());
+console.log(totalUsers);

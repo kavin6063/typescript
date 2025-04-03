@@ -165,3 +165,68 @@
 
 // console.log(newUser.getName()); // Output: Jane
 // console.log(newUser.getAge());  // Output: 28
+
+// static functions
+
+// class UserClass {
+//     name: string;
+//     age: number;
+
+//     constructor(name: string, age: number) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//    static isAdult(age: number) {
+//         return age >= 18;
+//     }
+// }
+// // const user = new UserClass('John', 30);
+// // console.log(user.isAdult());
+
+// console.log(UserClass.isAdult(20));
+
+
+// Static - properties
+
+// class UserClass {
+//     name: string;
+
+//     constructor(name: string) {
+//         this.name = name;
+//     }
+
+//     getName() {
+//         return this.name;
+//     }
+// }
+
+// let totalUsers = 0;
+
+// function createUser (name: string) {    
+//     totalUsers++;
+//     return new UserClass(name);
+// }
+
+// const user1 = createUser('John');
+// const user2 = createUser('Jane');
+
+// console.log(user1.getName());
+// console.log(user2.getName());
+
+// console.log(totalUsers); //type coupling
+
+// 
+
+class UserClass {
+    name: string
+    statictotalUsers : number = 0
+    
+    constructor(name: string) {
+        this.name = name;
+        UserClass.totalUsers++;
+    }
+    
+    getName() {
+        return this.name;
+    }
+}
