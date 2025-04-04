@@ -136,22 +136,58 @@
 // // console.log(user.isAdult());
 // console.log(UserClass.isAdult(20));
 // Static - properties
-var UserClass = /** @class */ (function () {
-    function UserClass(name) {
-        this.name = name;
+// class UserClass {
+//     name: string;
+//     constructor(name: string) {
+//         this.name = name;
+//     }
+//     getName() {
+//         return this.name;
+//     }
+// }
+// let totalUsers = 0;
+// function createUser (name: string) {    
+//     totalUsers++;
+//     return new UserClass(name);
+// }
+// const user1 = createUser('John');
+// const user2 = createUser('Jane');
+// console.log(user1.getName());
+// console.log(user2.getName());
+// console.log(totalUsers); //type coupling
+// 
+// class UserClass {
+//     name: string
+//     statictotalUsers : number = 0
+//     constructor(name: string) {
+//         this.name = name;
+//         UserClass.totalUsers++;
+//     }
+//     getName() {
+//         return this.name;
+//     }
+// }
+//GENERICS
+// Generic Stack Class
+var Stack = /** @class */ (function () {
+    function Stack() {
+        this.items = [];
     }
-    UserClass.prototype.getName = function () {
-        return this.name;
+    Stack.prototype.push = function (item) {
+        this.items.push(item);
     };
-    return UserClass;
+    Stack.prototype.pop = function () {
+        return this.items.pop();
+    };
+    return Stack;
 }());
-var totalUsers = 0;
-function createUser(name) {
-    totalUsers++;
-    return new UserClass(name);
-}
-var user1 = createUser('John');
-var user2 = createUser('Jane');
-console.log(user1.getName());
-console.log(user2.getName());
-console.log(totalUsers);
+// Usage with numbers
+var numberStack = new Stack();
+numberStack.push(1);
+numberStack.push(2);
+console.log(numberStack.pop());
+// Usage with strings
+var stringStack = new Stack();
+stringStack.push("hello");
+stringStack.push("world");
+console.log(stringStack.pop());

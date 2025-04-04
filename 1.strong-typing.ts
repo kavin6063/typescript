@@ -230,3 +230,30 @@
 //         return this.name;
 //     }
 // }
+
+//GENERICS
+
+// Generic Stack Class
+// class Stack<T> {
+//     private items: T[] = [];
+
+//     push(item: T) {
+//         this.items.push(item);
+//     }
+
+//     pop(): T | undefined {
+//         return this.items.pop();
+//     }
+// }
+
+// // Usage with numbers
+// const numberStack = new Stack<number>();
+// numberStack.push(1);
+// numberStack.push(2);
+// console.log(numberStack.pop()); 
+
+// // Usage with strings
+// const stringStack = new Stack<string>();
+// stringStack.push("hello");
+// stringStack.push("world");
+// console.log(stringStack.pop()); 
