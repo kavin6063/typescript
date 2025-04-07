@@ -198,12 +198,12 @@
 // console.log(`Name: ${user.name}, Age: ${user.age}`);
 // DECORATOR
 //
-var a = 42;
-var u = 56;
-var str1 = a;
-console.log(str1);
-// let str2: string = u; 
-if (typeof u === "string") {
-    console.log(u.toUpperCase()); // ✅ Safe now
-}
-console.log(typeof u === "string");
+// var a = 42;
+// var u = 56;
+// var str1 = a;
+// console.log(str1);
+// // let str2: string = u; 
+// if (typeof u === "string") {
+//     console.log(u.toUpperCase()); // ✅ Safe now
+// }
+// console.log(typeof u === "string");
